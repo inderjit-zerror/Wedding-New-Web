@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LenisScroll from "@/components/common/LenisScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         cz-shortcut-listen="true"
       >
+        <LenisScroll>
         {children}
+        </LenisScroll>
       </body>
     </html>
   );
