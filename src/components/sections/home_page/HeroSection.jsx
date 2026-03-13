@@ -151,10 +151,10 @@ const unlockScroll = () => {
       />
 
       {/* Name */}
-      <div className='w-full h-screen  z-80  relative flex justify-center pt-[40vh] font-bold'>
+      <div className='w-full h-screen  z-80  relative flex Font_Q justify-center pt-[40vh] font-bold'>
         <div className='w-fit h-fit flex flex-col namerDiv -rotate-z-25  justify-center items-center  text-white tracking-tight'>
           <div className='text-[5vw] uppercase leading-[5vw]'>AVNEET</div>
-          <div className='text-[1vw] leading-[1vw]'>Wed's</div>
+          <div className='text-[1vw] leading-[1vw] mt-5'>Wed's</div>
           <div className='text-[5vw] uppercase leading-[5vw]'>Amninder</div>
         </div>
       </div>

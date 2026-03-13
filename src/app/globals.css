@@ -2,8 +2,18 @@
 
 
 
+@font-face {
+  font-family: Font_Q;
+  src: url('/fonts/Norman.woff2');
+}
+
+.Font_Q{
+  font-family: Font_Q;
+}
+
 body {
- 
+  background-color: white;
+  position: relative;
   font-family:  Helvetica;
 }
 
