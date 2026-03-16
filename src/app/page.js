@@ -4,9 +4,7 @@ export default function Home() {
   return (
    <>
    <HeroSection/>
-   <div className="w-full h-screen pointer-events-none">
-
-   </div>
+   
    </>
   );
 }

@@ -16,47 +16,58 @@ const HeroSection = () => {
   const containerRef = useRef(null)
 
   const lockScroll = () => {
-  const scrollY = window.scrollY
-  document.body.dataset.scrollY = scrollY
-  document.body.style.top = `-${scrollY}px`
-  document.body.classList.add("no-scroll")
-}
+    const scrollY = window.scrollY
+    document.body.dataset.scrollY = scrollY
+    document.body.style.top = `-${scrollY}px`
+    document.body.classList.add("no-scroll")
+  }
 
-const unlockScroll = () => {
-  const scrollY = document.body.dataset.scrollY
-  document.body.classList.remove("no-scroll")
-  document.body.style.top = ""
-  window.scrollTo(0, parseInt(scrollY || "0"))
-}
+  const unlockScroll = () => {
+    const scrollY = document.body.dataset.scrollY
+    document.body.classList.remove("no-scroll")
+    document.body.style.top = ""
+    window.scrollTo(0, parseInt(scrollY || "0"))
+  }
 
   useGSAP(() => {
 
-     lockScroll()
+    lockScroll()
     const ctx = gsap.context(() => {
 
       const intro = gsap.timeline(
         {
-      onComplete: () => {
-        unlockScroll()
-      }
-    }
+          onComplete: () => {
+            unlockScroll()
+          }
+        }
       );
       // Intro animation
-      intro.from(skyRef.current, {
-        scale:4,
-        duration: 2,
-        ease: "power3.out"
-      },'a1')
+      // intro.from(skyRef.current, {
+      //   scale:4,
+      //   duration: 2,
+      //   ease: "power3.out"
+      // },'a1')
+      // intro.to(skyRef.current, {
+      //   scale:2,
+      //   duration: 2,
+      //   ease: "power3.out"
+      // },'a1')
+      intro
+        .fromTo(
+          skyRef.current,
+          { scale: 4 },
+          { scale: 1, duration: 2, ease: "power3.out" }
+        )
       intro.from('.namerDiv', {
-        y:'150vh',
+        y: '150vh',
         duration: 2,
         ease: "power3.out"
-      },'a1')
+      }, 'a1')
       intro.to('.namerDiv', {
-        rotateZ:0,
+        rotateZ: 0,
         duration: 2,
         ease: "power3.out"
-      },'a1')
+      }, 'a1')
       intro.from(castleRef.current, {
         yPercent: 30,
         duration: 2,
@@ -139,9 +150,11 @@ const unlockScroll = () => {
       <img
         ref={skyRef}
         src={`/SkyBG.png`}
-        className='w-full h-[110vh]  object-cover object-center absolute top-0 left-0 z-10'
+        className='w-full h-[110vh] object-cover object-bottom absolute top-0 left-0 z-10'
         alt="IMG"
       />
+      
+      
 
       <img
         ref={castleRef}
@@ -157,6 +170,7 @@ const unlockScroll = () => {
           <div className='text-[1vw] leading-[1vw] mt-5'>Wed's</div>
           <div className='text-[5vw] uppercase leading-[5vw]'>Amninder</div>
         </div>
+        
       </div>
 
       <div className='w-full h-screen fixed top-0 left-0 z-50 flex'>
@@ -175,6 +189,8 @@ const unlockScroll = () => {
         <Lamp top="85%" left="30%" translateX="-50%" translateY="-50%" rotation="25deg" name={'DemoAllItem  scale-[1.1] z-40 opacity-80 '} />
         <Lamp top="55%" left="20%" translateX="-50%" translateY="-50%" rotation="14deg" name={'DemoAllItem  scale-[0.7] z-40 opacity-80 '} />
       </div>
+
+      
     </div>
   )
 }
